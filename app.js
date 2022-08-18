@@ -1,10 +1,10 @@
-const url = "http://www.omdbapi.com/?i=tt3896198&apikey=83a999a0";
+const url = "http://www.omdbapi.com/?i=tt3896198&apikey=";
 
 const search = "http://www.omdbapi.com/?t=" // replace whitespace with + 
 
-// fetch("http://www.omdbapi.com/?i=tt3896198&apikey=83a999a0").then((response) => response.json())
+// fetch("http://www.omdbapi.com/?i=tt3896198&apikey=").then((response) => response.json())
 // .then((data) => console.log(data));
-
+let key = config.SECRET_API_KEY
 const searchButton = document.getElementById("searchButton")
 const searchFelid = document.getElementById("searchFelid")
 
@@ -18,7 +18,7 @@ searchButton.onclick = (event) => {
 function getData(moveName) {
     moveName = moveName.replace(' ', '+');
 
-    fetch("http://www.omdbapi.com/?t=" + moveName + "&apikey=83a999a0")
+    fetch("http://www.omdbapi.com/?t=" + moveName + `&apikey=${key}`)
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
