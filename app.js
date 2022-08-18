@@ -3,7 +3,8 @@ const url = "http://www.omdbapi.com/?i=tt3896198&apikey=";
 const search = "http://www.omdbapi.com/?t=" // replace whitespace with + 
 
 
-// Secret key Every api server has a way to authenticate the request by passing a secret key. Put your secret key down here.
+// Secret key Every api server has a way to authenticate the request by passing a secret key. Put your secret key down here
+// replace your secret key with config.SECRET_API_KEY.
 let key = config.SECRET_API_KEY
 
 // get search button from DOM 
@@ -26,7 +27,7 @@ searchButton.onclick = (event) => {
 
 // function to handle get data from server 
 function getData(moveName) {
-    // one of stander URL role is the url dosn't accept whitespace here we are replace whitespace whit '+' (this info from api documentation)
+    // one of stander URL role is the url doesn't accept whitespace here we are replace whitespace whit '+' (this info from api documentation)
     // handle whitespace 
     moveName = moveName.replace(' ', '+');
 
