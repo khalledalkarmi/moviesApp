@@ -9,7 +9,7 @@ moviesApp is a website to get movie details Using:
 
 To run it on your computer FORK the repository and clone it.
 
-Get your API key from [Here](http://www.omdbapi.com/apikey.aspx), after reseving the key in the app. JS replace key with your own key as a STRING, making sure to double-quote "Your Key". 
+Get your API key from [Here](http://www.omdbapi.com/apikey.aspx), after reseving the key in the app.js file replace key with your own key as a STRING, making sure to double-quote "Your Key". 
 ```javascript
  let key = config.SECRET_API_KEY
 ```
