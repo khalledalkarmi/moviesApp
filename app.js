@@ -38,11 +38,15 @@ function getData(moveName) {
         .then((response) => response.json())
         // after we handle the response 
         .then((data) => {
-            // log the response as object
-            console.log(data)
+            if (data.Response == 'False') {
+                alert(`${moveName} is not found`)
+            } else {
+                // log the response as object
+                console.log(data)
 
-            // call function display and take data as parameter to represent the data by DOM Manipulation
-            display(data)
+                // call function display and take data as parameter to represent the data by DOM Manipulation
+                display(data)
+            }
         });
 }
 
@@ -50,39 +54,41 @@ function getData(moveName) {
 let cardDiv = document.getElementById("cardDiv");
 
 function display(data) {
- 
-        // create div container and set class name 
-        let divCol = document.createElement("div");
-        divCol.className = "col-sm-3";
-        cardDiv.append(divCol);
 
-        // create div container to carry card-title, card-image, card-body, and card-text 
-        let card = document.createElement("div");
-        card.className = "card"
-        divCol.append(card);
+    // create div container and set class name 
+    let divCol = document.createElement("div");
+    divCol.className = "col-sm-3";
+    cardDiv.append(divCol);
 
-        let imgCard = document.createElement("img");
-        imgCard.className = "card-img-top w-100";
-        imgCard.style.width = "100px"
-        imgCard.src = data.Poster
-        card.append(imgCard)
+    // create div container to carry card-title, card-image, card-body, and card-text 
+    let card = document.createElement("div");
+    card.className = "card"
+    divCol.append(card);
 
-        let cardBody = document.createElement("div");
-        cardBody.className = "card-body"
-        card.append(cardBody);
+    let imgCard = document.createElement("img");
+    imgCard.className = "card-img-top w-100";
+    imgCard.style.width = "100px"
+    imgCard.src = data.Poster
+    card.append(imgCard)
 
-        let cardTitle = document.createElement("h5");
-        cardTitle.className = "card-title"
-        cardTitle.textContent = data.Title
-        cardBody.append(cardTitle);
+    let cardBody = document.createElement("div");
+    cardBody.className = "card-body"
+    card.append(cardBody);
 
-        let cardText = document.createElement("p");
-        cardText.className = "card-text"
-        cardText.setAttribute('style', 'white-space: pre;');
-        cardText.textContent = "- Year: " + data.Year + " \n\r- Rated: " + data.Rated + "\n\r- Runtime: " + data.Runtime + "\n\r- Genre: " + data.Genre
-        cardBody.append(cardText);
+    let cardTitle = document.createElement("h5");
+    cardTitle.className = "card-title"
+    cardTitle.textContent = data.Title
+    cardBody.append(cardTitle);
 
-    }
+    let cardText = document.createElement("p");
+    cardText.className = "card-text"
+    cardText.setAttribute('style', 'white-space: pre;');
+    cardText.textContent = "- Year: " + data.Year + " \n\r- Rated: " + data.Rated + "\n\r- Runtime: " + data.Runtime + "\n\r- Genre: " + data.Genre
+    cardBody.append(cardText);
+
+}
+
+
 
 
 
