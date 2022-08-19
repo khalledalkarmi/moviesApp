@@ -86,7 +86,37 @@ function display(data) {
     cardText.textContent = "- Year: " + data.Year + " \n\r- Rated: " + data.Rated + "\n\r- Runtime: " + data.Runtime + "\n\r- Genre: " + data.Genre
     cardBody.append(cardText);
 
+    let divRate = document.createElement("div")
+    divRate.className = "DivRate"
+    divRate.innerHTML = `<p>Rating </p> <br>` + star(data.Ratings[0].Value)
+    card.append(divRate)
+
+    card.addEventListener("mouseover", e => divRate.style.visibility = "visible")
+    card.addEventListener("mouseout", e => divRate.style.visibility = "hidden")
 }
+
+function star(rate) {
+    console.log(rate);
+    rate = rate.split('/')
+    let starCount = parseInt(rate[0]) / 2
+    console.log(starCount);
+    let innerHtml = ``;
+
+    for (let index = 0; index < starCount - 1; index++) {
+        innerHtml += `<i class="fa-solid fa-star" fa-2xs"></i>`
+    }
+
+    innerHtml += `<i class="fa-solid fa-star-half-stroke"></i>`
+    return innerHtml;
+
+}
+
+
+
+
+
+
+
 
 
 
